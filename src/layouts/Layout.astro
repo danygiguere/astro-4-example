@@ -3,13 +3,13 @@ import Header from "../components/Header.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 
-const { title, description } = Astro.props;
+const { title, description, i18n } = Astro.props;
 ---
 
 <html lang="en">
   <BaseHead title={title} description={description} />
   <body>
-    <Header />
+    <Header i18n={i18n}/>
     <slot />
     <Footer />
   </body>

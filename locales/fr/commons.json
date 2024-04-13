@@ -1,3 +1,4 @@
 {
-    "test": "Bonjour {username}. Tu as {age} ans."
+    "language": "Français",
+    "project-name": "Astro.build example en {language}"
 }

@@ -1,10 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-
 import SigninForm from "../../components/SigninForm";
+import I18n from "../../i18n";
+const i18n = new I18n(Astro.currentLocale);
 ---
 
-<Layout title="Signin" description="Lorem ipsum dolor sit amet">
+<Layout
+  title={i18n.t("strings.signin.title")}
+  description="Lorem ipsum dolor sit amet"
+  i18n={i18n}
+>
   <section class="h-[calc(100vh-40px)] bg-slate-50">
     <div class="md:container md:mx-auto px-4 py-10">
       <div class="grid justify-center">

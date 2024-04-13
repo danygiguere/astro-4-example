@@ -1,10 +1,8 @@
 ---
 import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../consts";
 
 import { getRelativeLocaleUrl } from "astro:i18n";
-import I18n from "../i18n";
-const i18n = new I18n(Astro.currentLocale);
+const { i18n } = Astro.props;
 
 const locale = Astro.currentLocale;
 const otherLocale = locale == "en" ? "fr" : "en";
@@ -15,20 +13,29 @@ const translatedpath = `/${otherLocale + url.substring(3)}`;
 const homeURL = getRelativeLocaleUrl(`${locale}`);
 const aboutURL = getRelativeLocaleUrl(`${locale}`, "about");
 const signinURL = getRelativeLocaleUrl(`${locale}`, "signin");
+
+const language = i18n.t("commons.language");
 ---
 
 <header>
   <nav>
     <section class="bg-slate-50">
       <div class="md:container md:mx-auto px-4 py-10">
-        <h2><a href=`/${locale}`>{SITE_TITLE}</a></h2>
-        <div class="internal-links">
-          <HeaderLink href={translatedpath}>{otherLocale}</HeaderLink>
-        </div>
-        <div class="internal-links">
+        <h2>
+          <a href=`/${locale}`>{i18n.t("commons.project-name", { language })}</a
+          >
+        </h2>
+
+        <div class="internal-links mt-12">
           <HeaderLink href={homeURL}>{i18n.t("strings.index.name")}</HeaderLink>
-          <HeaderLink href={aboutURL}>{i18n.t("strings.about.name")}</HeaderLink>
-          <HeaderLink href={signinURL}>{i18n.t("strings.signin.name")}</HeaderLink>
+          <HeaderLink href={aboutURL}>{i18n.t("strings.about.name")}</HeaderLink
+          >
+          <HeaderLink href={signinURL}
+            >{i18n.t("strings.signin.name")}</HeaderLink
+          >
+          <HeaderLink href={translatedpath}
+            ><span class="mr-2">|</span>{otherLocale}</HeaderLink
+          >
         </div>
       </div>
     </section>

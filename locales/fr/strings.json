@@ -1,13 +1,12 @@
 {
-    "english": "Anglais",
-    "french": "Français",
     "index": {
         "meta": {
             "title": "Le titre de la page d'accueil",
             "description": "La description de la page d'accueil"
         },
         "name": "Accueil",
-        "title": "Page d'accueil"
+        "title": "Page d'accueil",
+        "hi": "Bonjour {username}. Aujourd'hui nous sommes le {today}."
     },
     "about": {
         "meta": {

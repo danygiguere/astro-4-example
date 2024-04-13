@@ -1,15 +1,31 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Counter from "../../components/Counter";
+import I18n from "../../i18n";
+const i18n = new I18n(Astro.currentLocale);
 const someProps = {
   count: 0,
 };
+
+// string interpolation example
+const username = "John";
+const today = new Date().toString();
+const hi = i18n.t("strings.index.hi", {
+  username,
+  today,
+});
 ---
 
-<Layout title="Home" description="Lorem ipsum dolor sit amet">
+<Layout
+  title={i18n.t("strings.index.title")}
+  description="Lorem ipsum dolor sit amet"
+  i18n={i18n}
+>
   <section class="bg-slate-50">
-    <div class="md:container md:mx-auto px-4 py-10">
-      <h1 class="text-lg">Counter</h1>
+    <div class="md:container md:mx-auto px-4 py-8">
+      <h1>{hi}</h1>
+
+      <h2 class="text-lg mt-4">Counter</h2>
 
       <p class="mt-10">
         This component's JS will begin importing when the page loads

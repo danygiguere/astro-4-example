@@ -1,13 +1,12 @@
 {
-    "english": "English",
-    "french": "French",
     "index": {
         "meta": {
             "title": "The home page title",
             "description": "The home page description"
         },
         "name": "Home",
-        "title": "Home page"
+        "title": "Home page",
+        "hi": "Hello {username}. Today's date is {today}"
     },
     "about": {
         "meta": {

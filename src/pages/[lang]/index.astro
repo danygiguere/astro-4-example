@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Counter from "../../components/Counter";
+const someProps = {
+  count: 0,
+};
+---
+
+<Layout title="Home" description="Lorem ipsum dolor sit amet">
+  <section class="bg-slate-50">
+    <div class="md:container md:mx-auto px-4 py-10">
+      <h1 class="text-lg">Counter</h1>
+
+      <p class="mt-10">
+        This component's JS will begin importing when the page loads
+      </p>
+      <Counter {...someProps} client:load />
+
+      <p class="mt-10">
+        This component's JS will not be sent to the client until the user
+        scrolls down and the component is visible on the page
+      </p>
+      <Counter {...someProps} client:visible />
+
+      <p class="mt-10">
+        This component won't render on the server, but will render on the client
+        when the page loads
+      </p>
+      <Counter {...someProps} client:only="react" />
+    </div>
+  </section>
+</Layout>

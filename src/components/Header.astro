@@ -1,0 +1,43 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { SITE_TITLE } from "../consts";
+
+import { getRelativeLocaleUrl } from "astro:i18n";
+import I18n from "../i18n";
+const i18n = new I18n(Astro.currentLocale);
+const translations = i18n.getTranslations();
+
+const locale = Astro.currentLocale;
+const otherLocale = locale == "en" ? "fr" : "en";
+
+let url = Astro.url.pathname;
+const translatedpath = `/${otherLocale + url.substring(3)}`;
+
+const homeURL = getRelativeLocaleUrl(`${locale}`);
+const aboutURL = getRelativeLocaleUrl(`${locale}`, "about");
+const signinURL = getRelativeLocaleUrl(`${locale}`, "signin");
+---
+
+<header>
+  <nav>
+    <section class="bg-slate-50">
+      <div class="md:container md:mx-auto px-4 py-10">
+        <h2><a href=`/${locale}`>{SITE_TITLE}</a></h2>
+        <div class="internal-links">
+          <HeaderLink href={translatedpath}>{otherLocale}</HeaderLink>
+        </div>
+        <div class="internal-links">
+          <HeaderLink href={homeURL}
+            >{translations.strings.index.name}</HeaderLink
+          >
+          <HeaderLink href={aboutURL}
+            >{translations.strings.about.name}</HeaderLink
+          >
+          <HeaderLink href={signinURL}
+            >{translations.strings.signin.name}</HeaderLink
+          >
+        </div>
+      </div>
+    </section>
+  </nav>
+</header>

@@ -1,0 +1,36 @@
+{
+    "english": "English",
+    "french": "French",
+    "index": {
+        "meta": {
+            "title": "The home page title",
+            "description": "The home page description"
+        },
+        "name": "Home",
+        "title": "Home page"
+    },
+    "about": {
+        "meta": {
+            "title": "The about page title",
+            "description": "The about page description"
+        },
+        "name": "About",
+        "title": "About page"
+    },
+    "signin": {
+        "meta": {
+            "title": "The about page signin",
+            "description": "The about page descsigninription"
+        },
+        "name": "Signin",
+        "title": "Signin page"
+    },
+    "404": {
+        "meta": {
+            "title": "The 404 page title",
+            "description": "The 404 page description"
+        },
+        "name": "404",
+        "title": "404 page"
+    }
+}

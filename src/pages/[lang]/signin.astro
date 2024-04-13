@@ -1,0 +1,18 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import SigninForm from "../../components/SigninForm";
+---
+
+<Layout title="Signin" description="Lorem ipsum dolor sit amet">
+  <section class="h-[calc(100vh-40px)] bg-slate-50">
+    <div class="md:container md:mx-auto px-4 py-10">
+      <div class="grid justify-center">
+        <div class="sm:w-[500px]">
+          <h1 class="text-lg">Signin</h1>
+          <SigninForm client:load />
+        </div>
+      </div>
+    </div>
+  </section></Layout
+>

@@ -2,13 +2,19 @@
 import Layout from "../../layouts/Layout.astro";
 import I18n from "../../i18n";
 const i18n = new I18n(Astro.currentLocale);
-const translations = i18n.getTranslations();
+const username = "John";
+const age = "30";
+const greeting = i18n.t("commons.test", {
+  username,
+  age,
+});
 ---
 
 <Layout title="About" description="Lorem ipsum dolor sit amet">
   <section class="bg-slate-50">
     <div class="md:container md:mx-auto px-4 py-10">
-      <h1 class="text-lg">{translations.strings.about.title}</h1>
+      <h1 class="text-lg">{i18n.t("strings.about.title")}</h1>
+      <h2>{greeting}</h2>
     </div>
   </section>
 </Layout>

@@ -1,3 +1,3 @@
 {
-    "test": "A test"
+    "test": "Hello {username}. You are {age} years old."
 }

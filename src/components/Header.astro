@@ -5,7 +5,6 @@ import { SITE_TITLE } from "../consts";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import I18n from "../i18n";
 const i18n = new I18n(Astro.currentLocale);
-const translations = i18n.getTranslations();
 
 const locale = Astro.currentLocale;
 const otherLocale = locale == "en" ? "fr" : "en";
@@ -27,15 +26,9 @@ const signinURL = getRelativeLocaleUrl(`${locale}`, "signin");
           <HeaderLink href={translatedpath}>{otherLocale}</HeaderLink>
         </div>
         <div class="internal-links">
-          <HeaderLink href={homeURL}
-            >{translations.strings.index.name}</HeaderLink
-          >
-          <HeaderLink href={aboutURL}
-            >{translations.strings.about.name}</HeaderLink
-          >
-          <HeaderLink href={signinURL}
-            >{translations.strings.signin.name}</HeaderLink
-          >
+          <HeaderLink href={homeURL}>{i18n.t("strings.index.name")}</HeaderLink>
+          <HeaderLink href={aboutURL}>{i18n.t("strings.about.name")}</HeaderLink>
+          <HeaderLink href={signinURL}>{i18n.t("strings.signin.name")}</HeaderLink>
         </div>
       </div>
     </section>

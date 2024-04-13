@@ -1,27 +1,41 @@
 import * as fs from "fs";
 
 export default class I18n {
-    locale: string | undefined;
-    defaultLocale = "en"
-    supportedLocales = ["en", "fr"]
+  locale: string | undefined;
+  defaultLocale = "en";
+  supportedLocales = ["en", "fr"];
+  translations: { [key: string]: string } = {};
 
   constructor(locale: string | undefined) {
-    locale == undefined ? this.defaultLocale : locale
-    this.supportedLocales.forEach(item => {
-      if(locale == item) {
-       this.locale = item
-      }
-    })
+    this.locale = locale || this.defaultLocale;
+    this.loadTranslations();
   }
 
-  public getTranslations() {
+  private loadTranslations() {
+    console.log("loadTranslations");
     const directory = fs.readdirSync(`./locales/${this.locale}/`, "utf-8");
-    const data: { [key: string]: string | any } = {};
     for (let file of directory) {
-      data[file.slice(0, -5)] = JSON.parse(
+      const key = file.slice(0, -5);
+      this.translations[key] = JSON.parse(
         fs.readFileSync(`./locales/${this.locale}/${file}`, "utf-8")
       );
     }
-    return data;
+  }
+
+  public t(key: string, params: { [key: string]: string } = {}): string {
+    const keys = key.split(".");
+    let template: any = this.translations;
+    for (const k of keys) {
+      template = template[k];
+      if (template === undefined) {
+        console.error(`Translation not found for key '${key}'`);
+        return "";
+      }
+    }
+    return Object.entries(params).reduce(
+      (result, [paramKey, value]) =>
+        result.replace(new RegExp(`{${paramKey}}`, "g"), value),
+      template
+    );
   }
 }

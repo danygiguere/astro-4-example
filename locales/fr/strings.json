@@ -4,7 +4,7 @@
             "title": "Le titre de la page d'accueil",
             "description": "La description de la page d'accueil"
         },
-        "name": "Accueil",
+        "menu-name": "Accueil",
         "title": "Page d'accueil",
         "hi": "Bonjour {username}. Aujourd'hui nous sommes le {today}.",
         "counter": "Compteur",
@@ -17,7 +17,7 @@
             "title": "Le titre de la page à propos",
             "description": "La description de la page à propos"
         },
-        "name": "À propos",
+        "menu-name": "À propos",
         "title": "Page à propos"
     },
     "signin": {
@@ -25,15 +25,16 @@
             "title": "Le titre de la page se connecter",
             "description": "La description de la page se connecter"
         },
-        "name": "Se connecter",
-        "title": "Page se connecter"
+        "menu-name": "Se connecter",
+        "title": "Page se connecter",
+        "email": "Votre courriel",
+        "password": "Votre mot de passe"
     },
     "404": {
         "meta": {
             "title": "Le titre de la page 404",
             "description": "La description de la page 404"
         },
-        "name": "404",
         "title": "Page 404"
     }
 }

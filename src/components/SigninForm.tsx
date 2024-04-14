@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from "react";
 
-export default function SigninForm() {
+export default function SigninForm({ i18n: i18n }) {
   const [responseMessage, setResponseMessage] = useState("");
 
   async function submit(e: FormEvent<HTMLFormElement>) {
@@ -20,7 +20,7 @@ export default function SigninForm() {
     <form onSubmit={submit} method="post" className="w-full sm:w-[500px]">
       <div>
         <label htmlFor="" className="">
-          Your email
+          {i18n.t("strings.signin.email")}
         </label>
         <input
           id="email"
@@ -31,7 +31,7 @@ export default function SigninForm() {
       </div>
       <div className="mt-4">
         <label htmlFor="" className="">
-          Your password
+          {i18n.t("strings.signin.password")}
         </label>
         <input
           id="password"
@@ -41,7 +41,7 @@ export default function SigninForm() {
         ></input>
       </div>
       <button className="text-center border rounded-full px-4 py-2 mt-4 text-sm font-medium">
-        Sign in
+        {i18n.t("strings.signin.menu-name")}
       </button>
       {responseMessage && <p>{responseMessage}</p>}
     </form>

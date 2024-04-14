@@ -12,7 +12,6 @@ export default class I18n {
   }
 
   private loadTranslations() {
-    console.log("loadTranslations");
     const directory = fs.readdirSync(`./locales/${this.locale}/`, "utf-8");
     for (let file of directory) {
       const key = file.slice(0, -5);

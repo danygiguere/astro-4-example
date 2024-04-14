@@ -14,8 +14,8 @@ const i18n = new I18n(Astro.currentLocale);
     <div class="md:container md:mx-auto px-4 py-10">
       <div class="grid justify-center">
         <div class="sm:w-[500px]">
-          <h1 class="text-lg">Signin</h1>
-          <SigninForm client:load />
+          <h1 class="text-lg">{i18n.t("strings.signin.title")}</h1>
+          <SigninForm i18n={i18n} />
         </div>
       </div>
     </div>

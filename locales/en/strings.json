@@ -4,7 +4,7 @@
             "title": "The home page title",
             "description": "The home page description"
         },
-        "name": "Home",
+        "menu-name": "Home",
         "title": "Home page",
         "hi": "Hello {username}. Today's date is {today}",
         "counter": "Counter",
@@ -17,7 +17,7 @@
             "title": "The about page title",
             "description": "The about page description"
         },
-        "name": "About",
+        "menu-name": "About",
         "title": "About page"
     },
     "signin": {
@@ -25,15 +25,16 @@
             "title": "The about page signin",
             "description": "The about page descsigninription"
         },
-        "name": "Signin",
-        "title": "Signin page"
+        "menu-name": "Sign in",
+        "title": "Signin page",
+        "email": "Your email",
+        "password": "Your password"
     },
     "404": {
         "meta": {
             "title": "The 404 page title",
             "description": "The 404 page description"
         },
-        "name": "404",
         "title": "404 page"
     }
 }

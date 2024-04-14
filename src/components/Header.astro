@@ -27,11 +27,14 @@ const language = i18n.t("commons.language");
         </h2>
 
         <div class="internal-links mt-12">
-          <HeaderLink href={homeURL}>{i18n.t("strings.index.name")}</HeaderLink>
-          <HeaderLink href={aboutURL}>{i18n.t("strings.about.name")}</HeaderLink
+          <HeaderLink href={homeURL}
+            >{i18n.t("strings.index.menu-name")}</HeaderLink
+          >
+          <HeaderLink href={aboutURL}
+            >{i18n.t("strings.about.menu-name")}</HeaderLink
           >
           <HeaderLink href={signinURL}
-            >{i18n.t("strings.signin.name")}</HeaderLink
+            >{i18n.t("strings.signin.menu-name")}</HeaderLink
           >
           <HeaderLink href={translatedpath}
             ><span class="mr-2">|</span>{otherLocale}</HeaderLink

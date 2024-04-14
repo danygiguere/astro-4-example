@@ -42,6 +42,15 @@ const aboutPageTitle = i18n.t("strings.about.title")
 // example with no parameters. Will return the text for about.title in the strings.json file
 ```
 
+My custom I18n class uses fs to fetch the strings from the language files. As you may expect, that would not be available from the client, in a react component for instance. Therefore we need to pass the component translations beforehand as prop like this:
+```
+const i18n = new I18n(Astro.currentLocale);
+const componentTranslations = i18n.t("strings.signin.component");
+...
+<SigninForm translations={componentTranslations} client:load />
+```
+Look at signin.astro ans SigninForm.tsx for an example.
+
 
 ### Regarding Astro.build
 Visit https://astro.build for more info regarding Astro

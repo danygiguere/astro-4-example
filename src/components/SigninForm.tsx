@@ -1,13 +1,25 @@
 import { useState, type FormEvent } from "react";
 
-export default function SigninForm({ i18n: i18n }) {
+interface SigninFormProps {
+  locale: string,
+  translations: {
+    email: string;
+    password: string,
+    button: string
+  };
+}
+
+const SigninForm: React.FC<SigninFormProps> = ({ locale, translations }) => {
   const [responseMessage, setResponseMessage] = useState("");
 
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
-    const response = await fetch("/api/signin", {
+    const response = await fetch(`/api/signin`, {
       method: "POST",
+      headers: {
+        "Accept-Language": locale,
+      },
       body: formData,
     });
     const data = await response.json();
@@ -20,7 +32,7 @@ export default function SigninForm({ i18n: i18n }) {
     <form onSubmit={submit} method="post" className="w-full sm:w-[500px]">
       <div>
         <label htmlFor="" className="">
-          {i18n.t("strings.signin.email")}
+          {translations.email}
         </label>
         <input
           id="email"
@@ -31,7 +43,7 @@ export default function SigninForm({ i18n: i18n }) {
       </div>
       <div className="mt-4">
         <label htmlFor="" className="">
-          {i18n.t("strings.signin.password")}
+          {translations.password}
         </label>
         <input
           id="password"
@@ -41,9 +53,11 @@ export default function SigninForm({ i18n: i18n }) {
         ></input>
       </div>
       <button className="text-center border rounded-full px-4 py-2 mt-4 text-sm font-medium">
-        {i18n.t("strings.signin.menu-name")}
+        {translations.button}
       </button>
       {responseMessage && <p>{responseMessage}</p>}
     </form>
   );
-}
+};
+
+export default SigninForm;

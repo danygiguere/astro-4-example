@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import SigninForm from "../../components/SigninForm";
 import I18n from "../../i18n";
 const i18n = new I18n(Astro.currentLocale);
+const componentTranslations = i18n.t("strings.signin.component");
 ---
 
 <Layout
@@ -15,7 +16,7 @@ const i18n = new I18n(Astro.currentLocale);
       <div class="grid justify-center">
         <div class="sm:w-[500px]">
           <h1 class="text-lg">{i18n.t("strings.signin.title")}</h1>
-          <SigninForm i18n={i18n} />
+          <SigninForm locale={Astro.currentLocale} translations={componentTranslations} client:load />
         </div>
       </div>
     </div>

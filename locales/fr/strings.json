@@ -26,8 +26,11 @@
         },
         "menu-name": "Se connecter",
         "title": "Page se connecter",
-        "email": "Votre courriel",
-        "password": "Votre mot de passe"
+        "component": {
+            "email": "Votre courriel",
+            "password": "Votre mot de passe",
+            "button": "Se connecter"
+        }
     },
     "404": {
         "meta": {

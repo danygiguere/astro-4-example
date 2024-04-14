@@ -26,8 +26,11 @@
         },
         "menu-name": "Sign in",
         "title": "Signin page",
-        "email": "Your email",
-        "password": "Your password"
+        "component": {
+            "email": "Your email",
+            "password": "Your password",
+            "button": "Sign in"
+        }
     },
     "404": {
         "meta": {

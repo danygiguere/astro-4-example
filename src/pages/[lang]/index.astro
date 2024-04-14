@@ -8,10 +8,9 @@ const someProps = {
 };
 
 // string interpolation example
-const username = "John";
 const today = new Date().toString();
 const hi = i18n.t("strings.index.hi", {
-  username,
+  username: "John",
   today,
 });
 ---

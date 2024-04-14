@@ -16,7 +16,11 @@ const componentTranslations = i18n.t("strings.signin.component");
       <div class="grid justify-center">
         <div class="sm:w-[500px]">
           <h1 class="text-lg">{i18n.t("strings.signin.title")}</h1>
-          <SigninForm locale={Astro.currentLocale} translations={componentTranslations} client:load />
+          <SigninForm
+            locale={i18n.locale}
+            translations={componentTranslations}
+            client:load
+          />
         </div>
       </div>
     </div>

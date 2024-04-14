@@ -1,12 +1,12 @@
 import * as fs from "fs";
 
 export default class I18n {
-  locale: string | undefined;
+  locale: string;
   defaultLocale = "en";
   supportedLocales = ["en", "fr"];
   translations: { [key: string]: string } = {};
 
-  constructor(locale: string | undefined) {
+  constructor(locale: string | undefined | null) {
     this.locale = locale || this.defaultLocale;
     this.loadTranslations();
   }

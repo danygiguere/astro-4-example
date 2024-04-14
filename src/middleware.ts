@@ -1,6 +1,6 @@
 import { defineMiddleware } from "astro/middleware";
 
 export const onRequest = defineMiddleware((context, next) => {
-  console.log("In onRequest middleware");
+  // console.log("middleware.ts context:", context);
   return next();
 });

@@ -9,8 +9,8 @@ const { title, description, i18n } = Astro.props;
 <html lang="en">
   <BaseHead title={title} description={description} />
   <body>
-    <Header i18n={i18n}/>
+    <Header i18n={i18n} />
     <slot />
-    <Footer />
+    <Footer i18n={i18n} />
   </body>
 </html>

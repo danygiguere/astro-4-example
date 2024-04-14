@@ -1,4 +1,5 @@
 {
     "language": "Français",
-    "project-name": "Astro.build example en {language}"
+    "project-name": "Astro.build example en {language}",
+    "footer": "© {year} Votre nom ici. Tous droit réservés."
 }

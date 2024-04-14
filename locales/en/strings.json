@@ -6,7 +6,11 @@
         },
         "name": "Home",
         "title": "Home page",
-        "hi": "Hello {username}. Today's date is {today}"
+        "hi": "Hello {username}. Today's date is {today}",
+        "counter": "Counter",
+        "text1": "This component's JS will be rendered on the server (SSR)",
+        "text2": "This component won't render on the server, but will render on the client when the page loads",
+        "text3": "This component's JS will not be sent to the client until the user scrolls down and the component is visible on the page"
     },
     "about": {
         "meta": {

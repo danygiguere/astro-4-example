@@ -6,7 +6,11 @@
         },
         "name": "Accueil",
         "title": "Page d'accueil",
-        "hi": "Bonjour {username}. Aujourd'hui nous sommes le {today}."
+        "hi": "Bonjour {username}. Aujourd'hui nous sommes le {today}.",
+        "counter": "Compteur",
+        "text1": "Ce component JS sera rendu coté serveur (SSR)",
+        "text2": "Ce component JS sera importé lors du loading de la page",
+        "text3": "Ce component JS sera importé seulement lorsqu'il sera visible dans la page"
     },
     "about": {
         "meta": {

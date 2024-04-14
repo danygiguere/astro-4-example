@@ -4,7 +4,11 @@ import I18n from "../i18n";
 const i18n = new I18n(Astro.currentLocale);
 ---
 
-<Layout title="404" description="Lorem ipsum dolor sit amet" i18n={i18n}>
+<Layout
+  title={i18n.t("strings.404.title")}
+  description="Lorem ipsum dolor sit amet"
+  i18n={i18n}
+>
   <section class="bg-slate-50">
     <div class="md:container md:mx-auto px-4 py-10">
       <h1 class="text-lg">{i18n.t("strings.404.title")}</h1>

@@ -8,8 +8,8 @@
         "title": "Home page",
         "hi": "Hello {username}. Today's date is {today}",
         "counter": "Counter",
-        "text1": "This component won't render on the server, but will render on the client when the page loads",
-        "text2": "This component's JS will not be sent to the client until the user scrolls down and the component is visible on the page"
+        "text1": "Load and hydrate the component JavaScript immediately on page load.",
+        "text2": "Load and hydrate the component JavaScript once the component has entered the user’s viewport."
     },
     "about": {
         "meta": {

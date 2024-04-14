@@ -8,8 +8,8 @@
         "title": "Page d'accueil",
         "hi": "Bonjour {username}. Aujourd'hui nous sommes le {today}.",
         "counter": "Compteur",
-        "text1": "Ce component JS sera importé lors du loading de la page",
-        "text2": "Ce component JS sera importé seulement lorsqu'il sera visible dans la page"
+        "text1": "Charge et hydrate le composant JavaScript immédiatement au chargement de la page.",
+        "text2": "Charge et hydrate le JavaScript du composant une fois que le celui-ci est entré dans la fenêtre d’affichage de l’utilisateur."
     },
     "about": {
         "meta": {

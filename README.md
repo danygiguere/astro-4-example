@@ -35,8 +35,11 @@ const i18n = new I18n(Astro.currentLocale);
 const hi = i18n.t("strings.index.hi", {
   username: "John",
   today: today,
-});
+}); 
+// Will return Hello John. Today's date is Sun Apr 14 2024 10:54:15 GMT-0400 (Eastern Daylight Time)
+
 const aboutPageTitle = i18n.t("strings.about.title")
+// example with no parameters. Will return the text for about.title in the strings.json file
 ```
 
 

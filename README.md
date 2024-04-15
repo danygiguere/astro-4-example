@@ -7,7 +7,7 @@
 ### More info regarding my I18n ts class
 For the translations, it works with json language files and I've created a string interpolation function that you can use like this:
 
-- /locales/en/strings.json has this key
+- first you need to create a file /locales/en/strings.json with this key
 ```
 {
     "index": {
@@ -15,7 +15,7 @@ For the translations, it works with json language files and I've created a strin
     }
 }
 ```
-- /locales/fr/strings.json has 
+- and /locales/fr/strings.json with this key 
 ```
 {
     "index": {
@@ -24,7 +24,7 @@ For the translations, it works with json language files and I've created a strin
 }
 ```
 
-- Then you need to import and initialize my i18n class (with the Astro.currentLocale). It will load the translations files only once per initializations:
+- Then you need to import and initialize the i18n.ts class (with the Astro.currentLocale). It will load the translations files only once per initializations:
 ```
 import I18n from "../../i18n";
 const i18n = new I18n(Astro.currentLocale);
@@ -49,7 +49,7 @@ const componentTranslations = i18n.t("strings.signin.component");
 ...
 <SigninForm translations={componentTranslations} client:load />
 ```
-Look at signin.astro ans SigninForm.tsx for an example.
+Look at signin.astro and SigninForm.tsx for an example.
 
 
 ### Regarding Astro.build

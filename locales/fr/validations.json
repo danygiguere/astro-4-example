@@ -1,0 +1,4 @@
+{
+    "login-error": "Une erreur est survenue lors de l'ouverture de session. Veuillez réessayer.",
+    "login-success": "Ouverture de session complété avec succès."
+}

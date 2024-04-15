@@ -1,13 +1,14 @@
 ---
+// code fences
 const today = new Date();
 const { i18n } = Astro.props;
-const year = today.getFullYear()
+const year = today.getFullYear();
 ---
 
 <footer>
   <section class="bg-slate-50">
     <div class="md:container md:mx-auto px-4 py-10">
-      {i18n.t("commons.footer", {year})}
+      {i18n.t("commons.footer", { year })}
     </div>
   </section>
 </footer>

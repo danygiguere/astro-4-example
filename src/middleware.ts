@@ -5,16 +5,12 @@ import verifyAuth from "./auth";
 const secret = new TextEncoder().encode(import.meta.env.JWT_SECRET_KEY);
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  // console.log("middleware.ts context:", context);
-  console.log("middleware.ts context.url.pathname:", context.url.pathname);
   if (PUBLIC_ROUTES.includes(context.url.pathname)) {
     return next();
   }
 
   const token = context.cookies?.get(TOKEN)?.value;
   const validationResult = await verifyAuth(token);
-
-  console.log("validationResult", validationResult);
 
   switch (validationResult.status) {
     case "authorized":
@@ -27,12 +23,13 @@ export const onRequest = defineMiddleware(async (context, next) => {
           status: 401,
         });
       }
-      // otherwise, redirect to the root page for the user to login
       else {
-        return Response.redirect(new URL("/en", context.url));
+        return Response.redirect(new URL(`/${context.currentLocale}/signin`, context.url));
       }
 
     default:
-      return Response.redirect(new URL("/en", context.url));
+      return Response.redirect(
+        new URL(`/${context.currentLocale}`, context.url)
+      );
   }
 });

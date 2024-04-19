@@ -1,3 +1,4 @@
+import { navigate } from "astro/virtual-modules/transitions-router.js";
 import { useState, type FormEvent } from "react";
 
 interface SigninFormProps {
@@ -25,6 +26,7 @@ const SigninForm: React.FC<SigninFormProps> = ({ locale, translations }) => {
     const data = await response.json();
     if (data.message) {
       setResponseMessage(data.message);
+      navigate(`/${locale}/about`);
     }
   }
 

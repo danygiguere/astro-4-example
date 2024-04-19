@@ -4,8 +4,12 @@
 export const TOKEN = "token";
 export const PUBLIC_ROUTES = [
   "/en",
+  "/en/",
   "/fr",
+  "/fr/",
+  "/en/signin",
   "/en/signin/",
+  "/fr/signin",
   "/fr/signin/",
   "/api/signup",
   "/api/signin",

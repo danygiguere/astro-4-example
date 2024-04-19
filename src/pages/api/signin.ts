@@ -5,11 +5,11 @@ import { nanoid } from "nanoid";
 import { TOKEN } from "../../constants";
 const secret = new TextEncoder().encode(import.meta.env.JWT_SECRET_KEY);
 
-export const POST: APIRoute = async (ctx) => {
-  const locale = ctx.request.headers.get("accept-language");
+export const POST: APIRoute = async (context) => {
+  const locale = context.request.headers.get("accept-language");
   const i18n = new I18n(locale);
   try {
-    const formData = await ctx.request.formData();
+    const formData = await context.request.formData();
     const response = await fetch(`http://localhost:8012/login`, {
       method: "POST",
       headers: {
@@ -18,22 +18,25 @@ export const POST: APIRoute = async (ctx) => {
       },
       body: JSON.stringify(Object.fromEntries(formData.entries())),
     });
-    const token = await new SignJWT({})
-      .setProtectedHeader({ alg: "HS256" })
-      .setJti(nanoid())
-      .setIssuedAt()
-      .setExpirationTime("2h")
-      .sign(secret);
+    const user = await response.json();
+    if (user.id) {
+       const token = await new SignJWT({})
+         .setProtectedHeader({ alg: "HS256" })
+         .setJti(nanoid())
+         .setIssuedAt()
+         .setExpirationTime("2h")
+         .sign(secret); // or get token form the external
 
-    // set cookies
-    ctx.cookies.set(TOKEN, token, {
-      httpOnly: true,
-      path: "/",
-      maxAge: 60 * 60 * 2, // 2 hours in seconds
-    });
+       // set cookies
+       context.cookies.set(TOKEN, token, {
+         httpOnly: true,
+         path: "/",
+         maxAge: 60 * 60 * 2, // 2 hours in seconds
+       });
+    }
     return new Response(
       JSON.stringify({
-        user: await response.json(),
+        user: user,
         message: i18n.t("validations.login-success"),
       }),
       { status: 200 }

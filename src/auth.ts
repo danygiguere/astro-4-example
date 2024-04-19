@@ -3,14 +3,13 @@ import { errors, jwtVerify } from "jose";
 const secret = new TextEncoder().encode(import.meta.env.JWT_SECRET_KEY);
 
 const verifyAuth = async (token?: string) => {
-  if (!token) {
-    return {
-      status: "unauthorized",
-      msg: "please pass a request token",
-    } as const;
-  }
-
   try {
+    if (!token) {
+      return {
+        status: "unauthorized",
+        msg: "please pass a request token",
+      } as const;
+    } 
     const jwtVerifyResult = await jwtVerify(token, secret);
 
     return {

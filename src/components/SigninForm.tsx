@@ -26,6 +26,8 @@ const SignInForm: React.FC<SigninFormProps> = ({ locale, translations }) => {
     const data = await response.json();
     if (data.message) {
       setResponseMessage(data.message);
+    }
+    if (response.status == 200) {
       navigate(`/${locale}/secret`);
     }
   }

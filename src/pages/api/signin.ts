@@ -24,14 +24,14 @@ export const POST: APIRoute = async (context) => {
          .setProtectedHeader({ alg: "HS256" })
          .setJti(nanoid())
          .setIssuedAt()
-         .setExpirationTime("2h")
+         .setExpirationTime("5mins")
          .sign(secret); // or get token form the external
 
        // set cookies
        context.cookies.set(TOKEN, token, {
          httpOnly: true,
          path: "/",
-         maxAge: 60 * 60 * 2, // 2 hours in seconds
+         maxAge: 60 * 5, // in seconds
        });
     }
     return new Response(

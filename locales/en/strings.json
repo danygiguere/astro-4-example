@@ -41,7 +41,9 @@
         }
     },
     "signout": {
-        "menu-name": "Sign out"
+        "component": {
+            "button": "Sign out"
+        }
     },
     "404": {
         "meta": {

@@ -41,7 +41,9 @@
         }
     },
     "signout": {
-        "menu-name": "Se déconnecter"
+        "component": {
+            "button": "Se déconnecter"
+        }
     },
     "404": {
         "meta": {

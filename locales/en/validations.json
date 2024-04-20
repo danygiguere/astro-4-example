@@ -1,4 +1,6 @@
 {
-    "login-error": "An error has occured. Please try again.",
-    "login-success": "Signin Successfull!"
+    "signin-error": "An error has occured. Please try again.",
+    "signin-success": "Signin Successfull!",
+    "signout-error": "An error has occured. Please try again.",
+    "signout-success": "Signout Successfull!"
 }

@@ -1,4 +1,6 @@
 {
-    "login-error": "Une erreur est survenue lors de l'ouverture de session. Veuillez réessayer.",
-    "login-success": "Ouverture de session complété avec succès."
+    "signin-error": "Une erreur est survenue lors de l'ouverture de session. Veuillez réessayer.",
+    "signin-success": "Ouverture de session complété avec succès.",
+    "signout-error": "Une erreur est survenue lors de la fermeture de session. Veuillez réessayer.",
+    "signout-success": "Fermeture de session complété avec succès."
 }

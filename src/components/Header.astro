@@ -1,9 +1,9 @@
 ---
 // code fences
 import HeaderLink from "./HeaderLink.astro";
-import SignOutLink from "./SignOutLink.astro";
-
+import SignOutForm from "./SignOutForm";
 import { getRelativeLocaleUrl } from "astro:i18n";
+
 const { i18n } = Astro.props;
 
 const locale = Astro.currentLocale;
@@ -18,6 +18,7 @@ const secretURL = getRelativeLocaleUrl(`${locale}`, "secret");
 const signinURL = getRelativeLocaleUrl(`${locale}`, "signin");
 
 const language = i18n.t("commons.language");
+const signOutComponentTranslations = i18n.t("strings.signout.component");
 ---
 
 <header>
@@ -45,9 +46,11 @@ const language = i18n.t("commons.language");
             <HeaderLink href={signinURL}
               >{i18n.t("strings.signin.menu-name")}</HeaderLink
             >
-            <SignOutLink 
-              >{i18n.t("strings.signout.menu-name")}</SignOutLink
-            >
+            <SignOutForm
+              locale={i18n.locale}
+              translations={signOutComponentTranslations}
+              client:load
+            />
           </ul>
           <ul class="inline-block ml-4">
             <HeaderLink href={translatedpath}>{otherLocale}</HeaderLink>

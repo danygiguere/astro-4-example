@@ -1,7 +1,7 @@
 import { navigate } from "astro/virtual-modules/transitions-router.js";
 import { useState, type FormEvent } from "react";
 
-interface SigninFormProps {
+interface SignInFormProps {
   locale: string,
   translations: {
     email: string;
@@ -10,7 +10,7 @@ interface SigninFormProps {
   };
 }
 
-const SignInForm: React.FC<SigninFormProps> = ({ locale, translations }) => {
+const SignInForm: React.FC<SignInFormProps> = ({ locale, translations }) => {
   const [responseMessage, setResponseMessage] = useState("");
 
   async function submit(e: FormEvent<HTMLFormElement>) {

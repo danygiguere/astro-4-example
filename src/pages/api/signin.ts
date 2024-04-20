@@ -37,14 +37,14 @@ export const POST: APIRoute = async (context) => {
     return new Response(
       JSON.stringify({
         user: user,
-        message: i18n.t("validations.login-success"),
+        message: i18n.t("validations.signin-success"),
       }),
       { status: 200 }
     );
   } catch (e) {
     return new Response(
       JSON.stringify({
-        message: i18n.t("validations.login-error"),
+        message: i18n.t("validations.signin-error"),
       }),
       { status: 400 }
     );

@@ -40,6 +40,9 @@
             "button": "Sign in"
         }
     },
+    "signout": {
+        "menu-name": "Sign out"
+    },
     "404": {
         "meta": {
             "title": "The 404 page title",

@@ -40,6 +40,9 @@
             "button": "Se connecter"
         }
     },
+    "signout": {
+        "menu-name": "Se déconnecter"
+    },
     "404": {
         "meta": {
             "title": "Le titre de la page 404",

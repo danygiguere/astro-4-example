@@ -1,6 +1,7 @@
 ---
 // code fences
 import HeaderLink from "./HeaderLink.astro";
+import SignOutLink from "./SignOutLink.astro";
 
 import { getRelativeLocaleUrl } from "astro:i18n";
 const { i18n } = Astro.props;
@@ -28,22 +29,29 @@ const language = i18n.t("commons.language");
           >
         </h2>
 
-        <div class="internal-links mt-12">
-          <HeaderLink href={homeURL}
-            >{i18n.t("strings.index.menu-name")}</HeaderLink
-          >
-          <HeaderLink href={aboutURL}
-            >{i18n.t("strings.about.menu-name")}</HeaderLink
-          >
-          <HeaderLink href={secretURL}
-            >{i18n.t("strings.secret.menu-name")}</HeaderLink
-          >
-          <HeaderLink href={signinURL}
-            >{i18n.t("strings.signin.menu-name")}</HeaderLink
-          >
-          <HeaderLink href={translatedpath}
-            ><span class="mr-2">|</span>{otherLocale}</HeaderLink
-          >
+        <div>
+          <ul class="inline-block mt-12">
+            <HeaderLink href={homeURL}
+              >{i18n.t("strings.index.menu-name")}</HeaderLink
+            >
+            <HeaderLink href={aboutURL}
+              >{i18n.t("strings.about.menu-name")}</HeaderLink
+            >
+            <HeaderLink href={secretURL}
+              client:load>{i18n.t("strings.secret.menu-name")}</HeaderLink
+            >
+          </ul>
+          <ul class="inline-block ml-4">
+            <HeaderLink href={signinURL}
+              >{i18n.t("strings.signin.menu-name")}</HeaderLink
+            >
+            <SignOutLink 
+              >{i18n.t("strings.signout.menu-name")}</SignOutLink
+            >
+          </ul>
+          <ul class="inline-block ml-4">
+            <HeaderLink href={translatedpath}>{otherLocale}</HeaderLink>
+          </ul>
         </div>
       </div>
     </section>

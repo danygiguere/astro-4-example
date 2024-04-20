@@ -10,7 +10,7 @@ interface SigninFormProps {
   };
 }
 
-const SigninForm: React.FC<SigninFormProps> = ({ locale, translations }) => {
+const SignInForm: React.FC<SigninFormProps> = ({ locale, translations }) => {
   const [responseMessage, setResponseMessage] = useState("");
 
   async function submit(e: FormEvent<HTMLFormElement>) {
@@ -62,4 +62,4 @@ const SigninForm: React.FC<SigninFormProps> = ({ locale, translations }) => {
   );
 };
 
-export default SigninForm;
+export default SignInForm;

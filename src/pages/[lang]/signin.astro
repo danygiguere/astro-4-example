@@ -1,7 +1,7 @@
 ---
 // code fences
 import Layout from "../../layouts/Layout.astro";
-import SigninForm from "../../components/SigninForm";
+import SignInForm from "../../components/SignInForm";
 import I18n from "../../i18n";
 const i18n = new I18n(Astro.currentLocale);
 const componentTranslations = i18n.t("strings.signin.component");
@@ -17,7 +17,7 @@ const componentTranslations = i18n.t("strings.signin.component");
       <div class="grid justify-center">
         <div class="sm:w-[500px]">
           <h1 class="text-lg">{i18n.t("strings.signin.title")}</h1>
-          <SigninForm
+          <SignInForm
             locale={i18n.locale}
             translations={componentTranslations}
             client:load
@@ -27,3 +27,4 @@ const componentTranslations = i18n.t("strings.signin.component");
     </div>
   </section></Layout
 >
+

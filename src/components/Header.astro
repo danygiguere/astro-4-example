@@ -13,6 +13,7 @@ const translatedpath = `/${otherLocale + url.substring(3)}`;
 
 const homeURL = getRelativeLocaleUrl(`${locale}`);
 const aboutURL = getRelativeLocaleUrl(`${locale}`, "about");
+const secretURL = getRelativeLocaleUrl(`${locale}`, "secret");
 const signinURL = getRelativeLocaleUrl(`${locale}`, "signin");
 
 const language = i18n.t("commons.language");
@@ -33,6 +34,9 @@ const language = i18n.t("commons.language");
           >
           <HeaderLink href={aboutURL}
             >{i18n.t("strings.about.menu-name")}</HeaderLink
+          >
+          <HeaderLink href={secretURL}
+            >{i18n.t("strings.secret.menu-name")}</HeaderLink
           >
           <HeaderLink href={signinURL}
             >{i18n.t("strings.signin.menu-name")}</HeaderLink

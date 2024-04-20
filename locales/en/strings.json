@@ -19,6 +19,14 @@
         "menu-name": "About",
         "title": "About page"
     },
+    "secret": {
+        "meta": {
+            "title": "The secret page title",
+            "description": "The secret page description"
+        },
+        "menu-name": "Secret",
+        "title": "Secret page"
+    },
     "signin": {
         "meta": {
             "title": "The about page signin",

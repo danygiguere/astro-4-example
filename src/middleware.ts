@@ -20,7 +20,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
           status: 401,
         });
       } else {
-        console.log("redirect to /signin");
         return Response.redirect(
           new URL(`/${context.currentLocale}/signin`, context.url)
         );

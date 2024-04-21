@@ -1,6 +1,13 @@
 import { errors, jwtVerify } from "jose";
+import type { APIContext } from "astro";
+import { TOKEN } from "./constants";
 
 const secret = new TextEncoder().encode(import.meta.env.JWT_SECRET_KEY);
+
+// const getSession = async ({ cookies }: APIContext) => {
+//   const token = cookies?.get(TOKEN)?.value;
+//   // should return a user
+// };
 
 const verifyAuth = async (token?: string) => {
   try {

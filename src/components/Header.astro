@@ -47,14 +47,19 @@ console.log("header session", session);
             >
           </ul>
           <ul class="inline-block ml-4">
-            <HeaderLink href={signinURL}
-              >{i18n.t("strings.signin.menu-name")}</HeaderLink
-            >
-            <SignOutForm
-              locale={i18n.locale}
-              translations={signOutComponentTranslations}
-              client:load
-            />
+            {
+              session ? (
+                <SignOutForm
+                  locale={i18n.locale}
+                  translations={signOutComponentTranslations}
+                  client:load
+                />
+              ) : (
+                <HeaderLink href={signinURL}>
+                  {i18n.t("strings.signin.menu-name")}
+                </HeaderLink>
+              )
+            }
           </ul>
           <ul class="inline-block ml-4">
             <HeaderLink href={translatedpath}>{otherLocale}</HeaderLink>

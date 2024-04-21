@@ -1,12 +1,16 @@
 import { defineMiddleware } from "astro/middleware";
 import { TOKEN, PROTECTED_ROUTES } from "./constants";
-import verifyAuth from "./auth";
+import { verifyAuth, getSession } from "./auth";
+
 
 export const onRequest = defineMiddleware(async (context, next) => {
   const urlsWithNoTrailingSlash = context.url.pathname.replace(/\/$/, "");
   if (PROTECTED_ROUTES.includes(urlsWithNoTrailingSlash)) {
     const token = context.cookies?.get(TOKEN)?.value;
     const validationResult = await verifyAuth(token);
+    
+    const session = await getSession(context);
+    console.log("session", session);
 
     switch (validationResult.status) {
       case "authorized":

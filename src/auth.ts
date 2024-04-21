@@ -4,12 +4,25 @@ import { TOKEN } from "./constants";
 
 const secret = new TextEncoder().encode(import.meta.env.JWT_SECRET_KEY);
 
-// const getSession = async ({ cookies }: APIContext) => {
-//   const token = cookies?.get(TOKEN)?.value;
-//   // should return a user
-// };
+function parseJwt(token: string) {
+  return JSON.parse(Buffer.from(token.split(".")[1], "base64").toString());
+}
 
-const verifyAuth = async (token?: string) => {
+export const getSession = async ({ cookies }: APIContext) => {
+  const token = cookies?.get(TOKEN)?.value;
+  if (token) {
+    const decodedToken = parseJwt(token);
+    console.log(decodedToken)
+    return {
+      expires: decodedToken.exp,
+      user: {
+        id: decodedToken.sub
+      },
+    };
+  }
+};
+
+export const verifyAuth = async (token?: string) => {
   try {
     if (!token) {
       return {
@@ -33,5 +46,3 @@ const verifyAuth = async (token?: string) => {
     return { status: "error", msg: "could not validate auth token" } as const;
   }
 };
-
-export default verifyAuth;

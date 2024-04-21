@@ -24,14 +24,17 @@ export const POST: APIRoute = async (context) => {
          .setProtectedHeader({ alg: "HS256" })
          .setJti(nanoid())
          .setIssuedAt()
-         .setExpirationTime("5mins")
+         .setIssuer("domain-name-here")
+         .setSubject(user.id)
+         .setExpirationTime("500mins")
          .sign(secret); // or get token form the external
 
        // set cookies
+       // httpOnly cookie can only be accessed via the server. It's not accessible by javascript from the client.
        context.cookies.set(TOKEN, token, {
-         httpOnly: true,
+         httpOnly: true, 
          path: "/",
-         maxAge: 60 * 5, // in seconds
+         maxAge: 60 * 500, // in seconds
        });
     }
     return new Response(

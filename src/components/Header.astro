@@ -3,6 +3,7 @@
 import HeaderLink from "./HeaderLink.astro";
 import SignOutForm from "./SignOutForm";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { getSession } from "../auth";
 
 const { i18n } = Astro.props;
 
@@ -19,6 +20,9 @@ const signinURL = getRelativeLocaleUrl(`${locale}`, "signin");
 
 const language = i18n.t("commons.language");
 const signOutComponentTranslations = i18n.t("strings.signout.component");
+
+const session = await getSession(Astro);
+console.log("header session", session);
 ---
 
 <header>
